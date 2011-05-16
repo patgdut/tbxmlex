@@ -17,6 +17,7 @@
 		66CE5F02138185E000782F60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CE5F01138185E000782F60 /* UIKit.framework */; };
 		66CE5FD21381860400782F60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CE5FD11381860400782F60 /* libz.dylib */; };
 		66CE5FD6138186BD00782F60 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5FD5138186BD00782F60 /* GHUnitIOSTestMain.m */; };
+		66CE5FDB138189AA00782F60 /* ExTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5FDA138189AA00782F60 /* ExTestCase.m */; };
 		AA747D9F0F9514B9006C5449 /* TBXMLEx_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TBXMLEx_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		66CE5F01138185E000782F60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		66CE5FD11381860400782F60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		66CE5FD5138186BD00782F60 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHUnitIOSTestMain.m; path = Classes/Tests/GHUnitIOSTestMain.m; sourceTree = "<group>"; };
+		66CE5FDA138189AA00782F60 /* ExTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExTestCase.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TBXMLEx_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXMLEx_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTBXMLEx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTBXMLEx.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				66CE5FD5138186BD00782F60 /* GHUnitIOSTestMain.m */,
+				66CE5FDA138189AA00782F60 /* ExTestCase.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66CE5FD6138186BD00782F60 /* GHUnitIOSTestMain.m in Sources */,
+				66CE5FDB138189AA00782F60 /* ExTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
