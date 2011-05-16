@@ -12,3 +12,8 @@ The design goals for TBXML are:
 * XML parsing should incur the fewest possible resources
 * XML parsing should be achieved in the shortest possible time
 * It shall be easy to write programs that utilise TBXML
+
+Building GHUnit
+===============
+GHUnit is included as a submodule, however the compiled Framework is also available so you won't need to compile it by hand. If - for any reason - you wish to do so, run *git submodule init* and follow the instructions at 
+ [http://longweekendmobile.com/2011/02/23/tdd-best-practices-testing-in-ios4-with-ghunit-part-1/](http://longweekendmobile.com/2011/02/23/tdd-best-practices-testing-in-ios4-with-ghunit-part-1/).
