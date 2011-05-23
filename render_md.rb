@@ -6,6 +6,6 @@ require 'rubygems'
 require 'redcarpet'
 
 file = 'README.md'
-markdown = Redcarpet.new(File.read(file), :smart, :autolink, :generate_toc)
+markdown = Redcarpet.new(File.read(file), :autolink, :generate_toc)
 
 File.open('README.html', 'w') { |f| f.write(markdown.to_html) }

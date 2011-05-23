@@ -21,6 +21,12 @@ Using TBXMLEx
 =============
 TBXMLEx is built on top of TBXML, so if you are already using it in your projects, you will get 100% compatibiliy - even the import headers are the same. The extensions this library provides, on the other hand, are available via the header file *TBXMLEx.h*. 
 
+~~~~~~ {ruby}
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+~~~~~~
+
 ``` Objective-C
 NSString *xml = @"<files> \
 	<file timestamp='1234567890' size='123' createdAt='01/01/20011'>/Users/rafaelsteil/Desktop/file1.jpg</file> \
