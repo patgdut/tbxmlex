@@ -1,10 +1,11 @@
 #!/usr/bin/ruby
 # Markdown sintax at http://daringfireball.net/projects/markdown/syntax
+# Depends on https://github.com/tanoku/redcarpet
 
 require 'rubygems'
-require 'github/markup'
+require 'redcarpet'
 
 file = 'README.md'
-result = GitHub::Markup.render(file, File.read(file))
+markdown = Redcarpet.new(File.read(file), :smart, :autolink, :generate_toc)
 
-File.open('README.html', 'w') { |f| f.write(result) }
+File.open('README.html', 'w') { |f| f.write(markdown.to_html) }
