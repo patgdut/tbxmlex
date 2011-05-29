@@ -11,6 +11,7 @@
 		664D6C8F13917EF400FB3681 /* TBXMLEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 664D6C5F13917CDB00FB3681 /* TBXMLEx.m */; };
 		664D6D961391CB7100FB3681 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5E931381578700782F60 /* TBXML.m */; };
 		664D6D971391CB7100FB3681 /* TBXMLEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 664D6C5F13917CDB00FB3681 /* TBXMLEx.m */; };
+		666167361391D0CC00C41E94 /* TBXMLExTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 666167351391D0CC00C41E94 /* TBXMLExTestCase.m */; };
 		66CE5E941381578700782F60 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 66CE5E901381578700782F60 /* NSDataAdditions.h */; };
 		66CE5E951381578700782F60 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5E911381578700782F60 /* NSDataAdditions.m */; };
 		66CE5E961381578700782F60 /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 66CE5E921381578700782F60 /* TBXML.h */; };
@@ -21,7 +22,6 @@
 		66CE5F02138185E000782F60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CE5F01138185E000782F60 /* UIKit.framework */; };
 		66CE5FD21381860400782F60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CE5FD11381860400782F60 /* libz.dylib */; };
 		66CE5FD6138186BD00782F60 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5FD5138186BD00782F60 /* GHUnitIOSTestMain.m */; };
-		66CE5FDB138189AA00782F60 /* TBXMLExTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5FDA138189AA00782F60 /* TBXMLExTestCase.m */; };
 		AA747D9F0F9514B9006C5449 /* TBXMLEx_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TBXMLEx_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +39,7 @@
 /* Begin PBXFileReference section */
 		664D6C5E13917CDB00FB3681 /* TBXMLEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXMLEx.h; sourceTree = "<group>"; };
 		664D6C5F13917CDB00FB3681 /* TBXMLEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXMLEx.m; sourceTree = "<group>"; };
+		666167351391D0CC00C41E94 /* TBXMLExTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXMLExTestCase.m; path = Classes/Tests/TBXMLExTestCase.m; sourceTree = "<group>"; };
 		66CE5E901381578700782F60 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		66CE5E911381578700782F60 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		66CE5E921381578700782F60 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		66CE5F01138185E000782F60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		66CE5FD11381860400782F60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		66CE5FD5138186BD00782F60 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHUnitIOSTestMain.m; path = Classes/Tests/GHUnitIOSTestMain.m; sourceTree = "<group>"; };
-		66CE5FDA138189AA00782F60 /* TBXMLExTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXMLExTestCase.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TBXMLEx_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXMLEx_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTBXMLEx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTBXMLEx.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +138,8 @@
 		66CE5FD4138186AB00782F60 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				666167351391D0CC00C41E94 /* TBXMLExTestCase.m */,
 				66CE5FD5138186BD00782F60 /* GHUnitIOSTestMain.m */,
-				66CE5FDA138189AA00782F60 /* TBXMLExTestCase.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -238,9 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				66CE5FD6138186BD00782F60 /* GHUnitIOSTestMain.m in Sources */,
-				66CE5FDB138189AA00782F60 /* TBXMLExTestCase.m in Sources */,
 				664D6D961391CB7100FB3681 /* TBXML.m in Sources */,
 				664D6D971391CB7100FB3681 /* TBXMLEx.m in Sources */,
+				666167361391D0CC00C41E94 /* TBXMLExTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
