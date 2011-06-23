@@ -1,6 +1,8 @@
 #import "TBXMLEx.h"
 
+#ifndef SafeRelease
 #define SafeRelease(__p__) { [__p__ release]; __p__ = nil; }
+#endif
 
 @interface TBXMLEx ()
 -(void) setTBXML:(TBXML *) value;
