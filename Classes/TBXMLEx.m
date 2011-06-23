@@ -74,8 +74,20 @@
 	return element ? [TBXML valueOfAttributeNamed:name forElement:element] : nil;
 }
 
+-(int) intValue {
+	return [[self value] intValue];
+}
+
+-(long long) longValue {
+	return [[self value] longLongValue];
+}
+
 -(NSString *) value {
 	return element ? [TBXML textForElement:element] : nil;
+}
+
+-(NSString *) text {
+	return [self value];
 }
 
 -(BOOL) exists {

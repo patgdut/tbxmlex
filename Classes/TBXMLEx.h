@@ -15,6 +15,9 @@
 -(NSString *) attribute:(NSString *) name;
 -(int) intAttribute:(NSString *) name;
 -(NSString *) value;
+-(int) intValue;
+-(long long) longValue;
+-(NSString *) text;
 -(NSString *) name;
 -(BOOL) exists;
 
