@@ -10,7 +10,7 @@
 @synthesize currentElement;
 
 +(TBXMLEx *) parserWithXML:(NSString *) xml {
-	TBXMLEx *ex = [[TBXMLEx alloc] init];
+	TBXMLEx *ex = [[[TBXMLEx alloc] init] autorelease];
 	[ex setTBXML:[[TBXML alloc] initWithXMLString:xml]];
 	return ex;
 }
