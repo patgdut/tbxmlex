@@ -1,38 +1,16 @@
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
-
-@interface TBXMLElementEx : NSObject {
-	TBXMLElement *element;
-	BOOL firstPass;
-	NSDictionary *attributes;
-}
-
-@property (nonatomic, readonly) NSDictionary *attributes;
-
--(id) initWithElement:(TBXMLElement *) value;
--(TBXMLElementEx *) child:(NSString *) elementName;
--(BOOL) next;
--(NSString *) attribute:(NSString *) name;
--(int) intAttribute:(NSString *) name;
--(NSString *) value;
--(int) intValue;
--(long long) longValue;
--(NSString *) text;
--(NSString *) name;
--(BOOL) exists;
-
-@end
+#import "TBXMLElementEx.h"
 
 @interface TBXMLEx : NSObject {
 	TBXML *tbxml;
-	TBXMLElementEx *currentElement;
 	TBXMLElementEx *rootElement;
 }
 
+// Creates an autoreleased parser
 +(TBXMLEx *) parserWithXML:(NSString *) xml;
--(TBXMLElementEx *) rootElement;
 
-@property (nonatomic, readonly) TBXMLElementEx *currentElement;
+-(TBXMLElementEx *) rootElement;
 
 @end
 

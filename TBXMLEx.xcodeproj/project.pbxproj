@@ -12,6 +12,7 @@
 		664D6D961391CB7100FB3681 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5E931381578700782F60 /* TBXML.m */; };
 		664D6D971391CB7100FB3681 /* TBXMLEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 664D6C5F13917CDB00FB3681 /* TBXMLEx.m */; };
 		666167361391D0CC00C41E94 /* TBXMLExTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 666167351391D0CC00C41E94 /* TBXMLExTestCase.m */; };
+		66BF4FC413BE92AA00846DF9 /* TBXMLElementEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF4FC313BE92AA00846DF9 /* TBXMLElementEx.m */; };
 		66CE5E941381578700782F60 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 66CE5E901381578700782F60 /* NSDataAdditions.h */; };
 		66CE5E951381578700782F60 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5E911381578700782F60 /* NSDataAdditions.m */; };
 		66CE5E961381578700782F60 /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 66CE5E921381578700782F60 /* TBXML.h */; };
@@ -40,6 +41,8 @@
 		664D6C5E13917CDB00FB3681 /* TBXMLEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXMLEx.h; sourceTree = "<group>"; };
 		664D6C5F13917CDB00FB3681 /* TBXMLEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXMLEx.m; sourceTree = "<group>"; };
 		666167351391D0CC00C41E94 /* TBXMLExTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXMLExTestCase.m; path = Classes/Tests/TBXMLExTestCase.m; sourceTree = "<group>"; };
+		66BF4FC213BE92AA00846DF9 /* TBXMLElementEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXMLElementEx.h; sourceTree = "<group>"; };
+		66BF4FC313BE92AA00846DF9 /* TBXMLElementEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXMLElementEx.m; sourceTree = "<group>"; };
 		66CE5E901381578700782F60 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		66CE5E911381578700782F60 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		66CE5E921381578700782F60 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				66CE5E931381578700782F60 /* TBXML.m */,
 				664D6C5E13917CDB00FB3681 /* TBXMLEx.h */,
 				664D6C5F13917CDB00FB3681 /* TBXMLEx.m */,
+				66BF4FC213BE92AA00846DF9 /* TBXMLElementEx.h */,
+				66BF4FC313BE92AA00846DF9 /* TBXMLElementEx.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				664D6D961391CB7100FB3681 /* TBXML.m in Sources */,
 				664D6D971391CB7100FB3681 /* TBXMLEx.m in Sources */,
 				666167361391D0CC00C41E94 /* TBXMLExTestCase.m in Sources */,
+				66BF4FC413BE92AA00846DF9 /* TBXMLElementEx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

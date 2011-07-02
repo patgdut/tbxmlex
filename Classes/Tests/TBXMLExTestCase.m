@@ -19,13 +19,13 @@
 -(void) testInvalidTagShouldBeFlaggedAsNotExists {
 	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
 	TBXMLElementEx *fileNode = [parser.rootElement child:@"notATagName"];
-	GHAssertFalse(fileNode.exists, @"The tag wasn't supposed to exist");
+	GHAssertFalse(fileNode == nil, @"The tag wasn't supposed to exist");
 }
 
 -(void) testShouldRetrieveIntValue {
 	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
 	TBXMLElementEx *fileNode = [parser.rootElement child:@"file"];
-	GHAssertTrue(fileNode.exists, @"The first file node does not exist");
+	GHAssertTrue(fileNode != nil, @"The first file node does not exist");
 	GHAssertEquals(123, [fileNode intAttribute:@"size"], @"The size attribute is different");
 }
 
