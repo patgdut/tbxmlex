@@ -16,21 +16,38 @@
 	</files>";
 }
 
--(void) testInvalidTagShouldBeFlaggedAsNotExists {
+-(void) testInvalidTagShouldReturnNil {
 	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
-	TBXMLElementEx *fileNode = [parser.rootElement child:@"notATagName"];
-	GHAssertFalse(fileNode == nil, @"The tag wasn't supposed to exist");
+	TBXMLElementEx *fileNode = [parser.rootElement child:@"inexistent_tag_name"];
+	GHAssertNil(fileNode, @"The tag wasn't supposed to exist");
 }
 
 -(void) testShouldRetrieveIntValue {
 	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
 	TBXMLElementEx *fileNode = [parser.rootElement child:@"file"];
-	GHAssertTrue(fileNode != nil, @"The first file node does not exist");
 	GHAssertEquals(123, [fileNode intAttribute:@"size"], @"The size attribute is different");
 }
 
 -(void) testParserShouldNotCrashWhenXMLIsNil {
 	GHAssertNoThrow([TBXMLEx parserWithXML:nil], @"The parser should not crash when with a nil xml");
+}
+
+-(void) testParserShouldNotCrashWhenXMLIsEmpty {
+	GHAssertNoThrow([TBXMLEx parserWithXML:@""], @"The parser should not crash when with a nil xml");
+}
+
+-(void) testParserShouldNotCrashWhenXMLIsInvalid {
+	NSString *xml = @"<files><file></file><x";
+	TBXMLEx *parser = [TBXMLEx parserWithXML:xml];
+	GHAssertTrue(parser.invalidXML, @"XML should be flagged as invalid");
+	GHAssertEqualStrings(@"'>' character for the opening tag not found", parser.parsingErrorDescription, @"Incorrect error message");
+}
+
+-(void) testExpectInvalidParserWhenTagIsNotClosed {
+	NSString *xml = @"<files><file><![CDATA[aaa";
+	TBXMLEx *parser = [TBXMLEx parserWithXML:xml];
+	GHAssertTrue(parser.invalidXML, @"XML should be flagged as invalid");
+	GHAssertEqualStrings(@"CDATA element not closed", parser.parsingErrorDescription, @"Incorrect error message");
 }
 
 -(void) testShouldDisplayRootElementName {
