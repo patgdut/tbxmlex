@@ -45,7 +45,7 @@
 // ================================================================================================
 @implementation TBXML
 
-@synthesize rootXMLElement;
+@synthesize rootXMLElement, invalidXML, parsingErrorDescription;
 
 + (id)tbxmlWithURL:(NSURL*)aURL {
 	return [[[TBXML alloc] initWithURL:aURL] autorelease];
@@ -271,6 +271,12 @@
 			// find end of cdata section
 			char * CDATAEnd = strstr(elementStart,"]]>");
 			
+			if (CDATAEnd == NULL) {
+				self.parsingErrorDescription = @"CDATA element not closed";
+				invalidXML = YES;
+				return;
+			}
+			
 			// find start of next element skipping any cdata sections within text
 			char * elementEnd = CDATAEnd;
 			
@@ -306,7 +312,13 @@
 		
 		
 		// find element end, skipping any cdata sections within attributes
-		char * elementEnd = elementStart+1;		
+		char * elementEnd = elementStart+1;	
+		
+		if (!elementEnd) {
+			invalidXML = YES;
+			return;
+		}
+		
 		while (elementEnd = strpbrk(elementEnd, "<>")) {
 			if (strncmp(elementEnd,"<![CDATA[",9) == 0) {
 				elementEnd = strstr(elementEnd,"]]>")+3;
@@ -356,14 +368,18 @@
 			}
 			continue;
 		}
-		
+
+		if (elementEnd == NULL) {
+			invalidXML = YES;
+			self.parsingErrorDescription = @"'>' character for the opening tag not found";
+			return;
+		}		
 		
 		// is this element opening and closing
 		BOOL selfClosingElement = NO;
 		if (*(elementEnd-1) == '/') {
 			selfClosingElement = YES;
 		}
-		
 		
 		// create new xmlElement struct
 		TBXMLElement * xmlElement = [self nextAvailableElement];

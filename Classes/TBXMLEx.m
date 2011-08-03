@@ -16,6 +16,14 @@
 	tbxml = value;
 }
 
+-(BOOL) invalidXML {
+	return tbxml.invalidXML;
+}
+
+-(NSString *) parsingErrorDescription {
+	return tbxml.parsingErrorDescription;
+}
+
 -(TBXMLElementEx *) rootElement {
 	if (!rootElement) {
 		rootElement = [[TBXMLElementEx alloc] initWithElement:tbxml.rootXMLElement];

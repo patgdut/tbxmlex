@@ -93,8 +93,13 @@ typedef struct _TBXMLAttributeBuffer {
 	
 	char * bytes;
 	long bytesLength;
+	
+	BOOL invalidXML;
+	NSString *parsingErrorDescription;
 }
 
+@property (nonatomic, retain) NSString *parsingErrorDescription;
+@property (nonatomic, readonly) BOOL invalidXML;
 @property (nonatomic, readonly) TBXMLElement * rootXMLElement;
 
 + (id)tbxmlWithURL:(NSURL*)aURL;

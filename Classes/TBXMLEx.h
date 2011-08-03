@@ -10,6 +10,8 @@
 // Creates an autoreleased parser
 +(TBXMLEx *) parserWithXML:(NSString *) xml;
 
+-(BOOL) invalidXML;
+-(NSString *) parsingErrorDescription;
 -(TBXMLElementEx *) rootElement;
 
 @end
