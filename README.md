@@ -18,6 +18,8 @@ TBXMLEx is built on top of TBXML, so if you are already using it in your project
 
 Whilte TBXML itself is great, TBXMLEx adds a thin layer on top of that in order to provide an easier to write, with a more OO friedly interface, preventing from some programming errors of happening, like infinite loops or crashes due to inexistent nodes or attributes. 
 
+Also, a very important enhancement that TBXMLEx has is that the parser will not crash if the XML is not well formed. Instead, it will just stop parsing and set the attribute _invalidXML_ to _YES_. The error description, if any, will be available in the _parsingErrorDescription_ property.
+
 ~~~~~~ {objective-c}
 #include "TBXMLEx.h"
 
@@ -55,7 +57,7 @@ if (xml.rootElement) {
 * The method _next_ of _TBXMLElementEx_ advances the pointer to the next available element. Use it to loop through the elements
 * To get the attributes of a given element, you can either get them all at once by calling the _attributes_ property (like _someNode.attributes_), or accessing them directly using any of the helper methods: _attribute:(NSString *)_, _intAttribute:(NSString *)_ or _longAttribute:(NSString *)_
 * To access the value of a tag or its CDATA, you can use either _text_ or _value_
-
+* If the XML is not well formed, the property _invalidXML_ of _TBXMLEx_ will be set to _YES_, and the error description (if any) will be available through the _parsingErrorDescription_ property.
 
 Contributing to the project
 ===========================
