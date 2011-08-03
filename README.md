@@ -61,8 +61,9 @@ Contributing to the project
 ===========================
 Enhancements and fixes are very welcome. In order to do, please fork the project (instructions at http://help.github.com/fork-a-repo/), do your changes, and then send a pull request (instructions at http://help.github.com/send-pull-requests/).
 
-Test cases - Building GHUnit
+Test cases
 ===============
-GHUnit is included as a submodule, however the compiled Framework is also available so you won't need to compile it by hand. If - for any reason - you wish to do so, run *git submodule init* and follow the instructions at http://longweekendmobile.com/2011/02/23/tdd-best-practices-testing-in-ios4-with-ghunit-part-1.
+TBXMLEx uses GHUnit as unit testing framework, which is included as submodule. Haowever, the compiled framework is also available so you won't need to compile it by hand. If - for any reason - you wish to do so, run *git submodule init* and follow the instructions at http://longweekendmobile.com/2011/02/23/tdd-best-practices-testing-in-ios4-with-ghunit-part-1.
 
+To run the tests, change the _Active Target_ in XCode to _Tests_, and click _Build and Run_. The tests run on the Simulator. 
 
