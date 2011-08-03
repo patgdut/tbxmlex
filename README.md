@@ -16,7 +16,11 @@ Using TBXMLEx
 =============
 TBXMLEx is built on top of TBXML, so if you are already using it in your projects, you will get 100% compatibiliy - even the import headers are the same. The extensions this library provides, on the other hand, are available via the header file *TBXMLEx.h*. 
 
+Whilte TBXML itself is great, TBXMLEx adds a thin layer on top of that in order to provide an easier to write, with a more OO friedly interface, preventing from some programming errors of happening, like infinite loops or crashes due to inexistent nodes or attributes. 
+
 ~~~~~~ {objective-c}
+#include "TBXMLEx.h"
+
 NSString *xml = @"<files> \
 	<file timestamp='1234567890' size='123' createdAt='01/01/20011'>file1.jpg</file> \
 	<file timestamp='1234567890' size='8934' createdAt='02/01/20011'>file2.jpg</file> \
@@ -30,15 +34,32 @@ if (xml.rootElement) {
 	TBXMLElementEx *fileNode = [xml.rootElement child:@"file"];
 
 	while ([fileNode next]) {
+	  // You can access the attributes through a dictionary
 		NSDictionary *allAttributes = fileNode.attributes;
 		NSLog(@"Timestamp: %@", [allAttributes objectWithKey:@"timestamp"]);
 	
+	  // Or you can have direct access to any specific attribute
 		NSLog(@"Size: %d", [fileNode intAttribute:@"size"]);
 		NSLog(@"createdAt: %@", [fileNode attribute:@"createdAt"]);
 		NSLog(@"Filename: %@", fileNode.value); // or fileNode.text
 	}
 }
 ~~~~~~
+
+### API
+
+* Import "TBXMLEx.h"
+* Create a parser with [TBXMLEx parserWithXML:(NSString *) contents], passing the XML contents as argument. It will return an auto-release object.
+* The root element is available via the property _rootElement_ of _TBXMLEx_ (which is returned by _parserWithXML_)
+* Each element, including _rootElement_, is a type of _TBXMLElementEx_
+* The method _next_ of _TBXMLElementEx_ advances the pointer to the next available element. Use it to loop through the elements
+* To get the attributes of a given element, you can either get them all at once by calling the _attributes_ property (like _someNode.attributes_), or accessing them directly using any of the helper methods: _attribute:(NSString *)_, _intAttribute:(NSString *)_ or _longAttribute:(NSString *)_
+* To access the value of a tag or its CDATA, you can use either _text_ or _value_
+
+
+Contributing to the project
+===========================
+Enhancements and fixes are very welcome. In order to do, please fork the project (instructions at http://help.github.com/fork-a-repo/), do your changes, and then send a pull request (instructions at http://help.github.com/send-pull-requests/).
 
 Test cases - Building GHUnit
 ===============
