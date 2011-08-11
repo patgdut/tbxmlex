@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53C5968613F41B8700DCBD3B /* TBXMLElementEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF4FC313BE92AA00846DF9 /* TBXMLElementEx.m */; };
 		664D6C8E13917EF400FB3681 /* TBXMLEx.h in Headers */ = {isa = PBXBuildFile; fileRef = 664D6C5E13917CDB00FB3681 /* TBXMLEx.h */; };
 		664D6C8F13917EF400FB3681 /* TBXMLEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 664D6C5F13917CDB00FB3681 /* TBXMLEx.m */; };
 		664D6D961391CB7100FB3681 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 66CE5E931381578700782F60 /* TBXML.m */; };
@@ -257,6 +258,7 @@
 				66CE5E951381578700782F60 /* NSDataAdditions.m in Sources */,
 				66CE5E971381578700782F60 /* TBXML.m in Sources */,
 				664D6C8F13917EF400FB3681 /* TBXMLEx.m in Sources */,
+				53C5968613F41B8700DCBD3B /* TBXMLElementEx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

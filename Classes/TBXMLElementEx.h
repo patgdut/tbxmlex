@@ -4,7 +4,7 @@
 @interface TBXMLElementEx : NSObject {
 	TBXMLElement *element;
 	BOOL firstPass;
-	NSDictionary *attributes;
+	NSMutableDictionary *attributes;
 }
 
 // A dictionary with all attributes of a given element

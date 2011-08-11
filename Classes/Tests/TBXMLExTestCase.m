@@ -16,6 +16,26 @@
 	</files>";
 }
 
+-(void) testExpect4FileElements {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
+	TBXMLElementEx *fileNode = [parser.rootElement child:@"file"];
+	int counter = 0;
+	
+	while ([fileNode next]) {
+		counter++;
+	}
+	
+	GHAssertEquals(4, counter, @"4 elements were expected");
+}
+
+-(void) testAttributesAsDictionaryShouldBePopulated {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
+	TBXMLElementEx *fileNode = [parser.rootElement child:@"file"];
+	GHAssertEqualStrings(@"1234567890", [fileNode.attributes objectForKey:@"timestamp"], @"Timestamp not found");
+	GHAssertEqualStrings(@"123", [fileNode.attributes objectForKey:@"size"], @"Size not found");
+	GHAssertEqualStrings(@"01/01/20011", [fileNode.attributes objectForKey:@"createdAt"], @"createdAt not found");
+}
+
 -(void) testInvalidTagShouldReturnNil {
 	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
 	TBXMLElementEx *fileNode = [parser.rootElement child:@"inexistent_tag_name"];
