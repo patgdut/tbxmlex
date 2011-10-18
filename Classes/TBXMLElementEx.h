@@ -34,6 +34,11 @@
 // Return the text of this tag as an int
 -(int) intValue;
 
+/*
+
+*/
+-(NSArray *) query:(NSString *) search;
+
 // Retunrs the text of this tas as a long
 -(long long) longValue;
 

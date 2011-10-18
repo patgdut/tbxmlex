@@ -16,6 +16,82 @@
 	</files>";
 }
 
+-(NSString *) queryXML {
+	return @"<data> \
+		<a> \
+			<a1/> \
+			<a1/> \
+			<a1/> \
+		</a> \
+		 \
+		<b/> \
+		<b/> \
+		<c/> \
+		 \
+		<d> \
+			<d1> \
+				<d11/> \
+				<d21/> \
+			</d1> \
+			 \
+			<d2> \
+				<d21/> \
+				<d22> \
+					<d221/> \
+				</d22> \
+			</d2> \
+		</d> \
+	</data>";	
+}
+
+-(void) testQueryEndsWithSlashShoulShouldWorkAnyway {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self queryXML]];
+	NSArray *result = [parser.rootElement query:@"/c/"];
+	GHAssertEquals(1, (int)result.count, @"One element was expected");
+	GHAssertEqualStrings(@"c", [[result objectAtIndex:0] name], @"The tag's name is wrong");
+}
+
+-(void) testQueryDoesNotStartWithSlashShoulShouldFindAnyway {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self queryXML]];
+	NSArray *result = [parser.rootElement query:@"d/d2"];
+	GHAssertEquals(1, (int)result.count, @"One element was expected");
+	GHAssertEqualStrings(@"d2", [[result objectAtIndex:0] name], @"The tag's name is wrong");
+}
+
+-(void) testQueryInexistentElementShouldReturnEmptyArray {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self queryXML]];
+	NSArray *result = [parser.rootElement query:@"/bla"];
+	GHAssertEquals(0, (int)result.count, @"Zero elements were expected");
+}	
+
+-(void) testQueryShouldFindVeryInnerElementsOf_D {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self queryXML]];
+	NSArray *result = [parser.rootElement query:@"/d/d2/d22/d221"];
+	GHAssertEquals(1, (int)result.count, @"One element was expected");
+	GHAssertEqualStrings(@"d221", [[result objectAtIndex:0] name], @"The first tag's name is wrong");
+}	
+
+-(void) testQueryShouldFindInnerElementsOf_A {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self queryXML]];
+	NSArray *result = [parser.rootElement query:@"/a/a1"];
+	GHAssertEquals(3, (int)result.count, @"Three elements were expected");
+	GHAssertEqualStrings(@"a1", [[result objectAtIndex:0] name], @"The first tag's name is wrong");
+	GHAssertEqualStrings(@"a1", [[result objectAtIndex:1] name], @"The second tag's name is wrong");
+	GHAssertEqualStrings(@"a1", [[result objectAtIndex:2] name], @"The third tag's name is wrong");
+}
+
+-(void) testQueryShouldFindTwo_B {
+	TBXMLEx *parser = [TBXMLEx parserWithXML:[self queryXML]];
+	NSArray *result = [parser.rootElement query:@"/b"];
+	GHAssertEquals(2, (int)result.count, @"Two elements were expected");
+	
+	TBXMLElementEx *el1 = [result objectAtIndex:0];
+	GHAssertEqualStrings(@"b", el1.name, @"The first tag's name is wrong");
+	
+	TBXMLElementEx *el2 = [result objectAtIndex:1];
+	GHAssertEqualStrings(@"b", el2.name, @"The second tag's name is wrong");
+}
+
 -(void) testInvalidTagShouldReturnNil {
 	TBXMLEx *parser = [TBXMLEx parserWithXML:[self filesXML]];
 	TBXMLElementEx *fileNode = [parser.rootElement child:@"inexistent_tag_name"];

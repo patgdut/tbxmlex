@@ -48,6 +48,46 @@ if (xml.rootElement) {
 }
 ~~~~~~
 
+Querying
+===========
+TBXMLEx can do some simple object querying. Right now it is possible to directly access any given child without manually looping through all its parents, just use "/" as element separator. 
+
+~~~~~~ {objective-c}
+NSString *xml = @"<data> \
+		<a> \
+			<a1/> \
+			<a1/> \
+			<a1/> \
+		</a> \
+		 \
+		<b/> \
+		<b/> \
+		<c/> \
+		 \
+		<d> \
+			<d1> \
+				<d11/> \
+				<d21/> \
+			</d1> \
+			 \
+			<d2> \
+				<d21/> \
+				<d22> \
+					<d221/> \
+				</d22> \
+			</d2> \
+		</d> \
+	</data>";
+	
+TBXMLEx *parser = [TBXMLEx parserWithXML:xml];
+
+// Directly access the "d221" tag
+NSArray *result = [parser.rootElement query:@"/d/d2/d22/d221"];
+TBXMLElementEx *element = [result objectAtIndex:0];
+~~~~~~
+
+The _query_ method will return all elements that match the criteria, or an empty array if none is found. 
+
 ### API
 
 * Import "TBXMLEx.h"
