@@ -18,11 +18,11 @@
 
 -(NSDictionary *) attributes {
 	if (!attributes) {
-		attributes = [[NSDictionary alloc] init];
+		attributes = [[NSMutableDictionary alloc] init];
 		TBXMLAttribute *attr = element->firstAttribute;
 		
 		while (attr) {
-			[attributes setValue:[TBXML attributeName:attr] forKey:[TBXML attributeValue:attr]];
+			[attributes setObject:[TBXML attributeValue:attr] forKey:[TBXML attributeName:attr]];
 			attr = attr->next;
 		}
 	}

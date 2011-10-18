@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files> 
+	<file timestamp='1234567890' size='123' createdAt='01/01/20011'>file1.jpg</file> 
+	<file timestamp='1234567890' size='8934'> 
+		<name>file2.jpg</name> 
+		<attributes> 
+			<createdAt>01/01/2011 13:45:56</createdAt> 
+			<owner>john</owner> 
+		</attributes> 
+	</file> 
+</files>
